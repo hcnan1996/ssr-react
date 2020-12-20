@@ -2,7 +2,7 @@ import React from 'react';
 const Home = () => {
   return (
     <div>
-      <div>This is home</div>
+      <div onClick={ () => alert('6666') }>This is home</div>
     </div>
   )
 }
