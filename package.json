@@ -4,17 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:build:server": "webpack --config webpack.server.js --watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:start": "nodemon --watch build --exec node \"./build/bundle.js\""
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/preset-react": "^7.12.10",
-    "@babel/preset-stage-0": "^7.8.3",
-    "babel-loader": "^8.2.2",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-stage-0": "^7.0.0",
+    "babel-loader": "^8.0.6",
     "express": "^4.17.1",
-    "webpack": "^5.11.0",
-    "webpack-cli": "^4.2.0"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5",
+    "webpack-merge": "^4.2.1",
+    "webpack-node-externals": "^2.5.2"
   }
 }
