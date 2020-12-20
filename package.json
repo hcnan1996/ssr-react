@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "npm-run-all --parallel dev:**",
+    "dev:start": "nodemon --watch build --exec node \"./build/bundle.js\"",
     "dev:build:server": "webpack --config webpack.server.js --watch",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:start": "nodemon --watch build --exec node \"./build/bundle.js\""
+    "dev:build:client": "webpack --config webpack.client.js --watch"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +18,7 @@
     "@babel/preset-stage-0": "^7.0.0",
     "babel-loader": "^8.0.6",
     "express": "^4.17.1",
+    "npm-run-all": "^4.1.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "webpack": "^4.35.2",
