@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getHomeList } from "./store/actions";
 const Home = (props) => {
-  const { list, name } = props;
+  const { list, name, getHomeList } = props;
+  useEffect(() => {
+    getHomeList()
+  },[])
   const getList = () => {
-    console.log(list);
     return list.map((item) => <div key={item.id}>{item.title}</div>);
   };
   return (
