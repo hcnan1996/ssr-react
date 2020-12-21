@@ -29,3 +29,13 @@ export const getHomeList = (server) => {
     });
   };
 };
+
+export const getAxiosTest = () => {
+  return (dispatch, getState, axiosInstance) => {
+    return axiosInstance.get("/api/test.json").then((res) => {
+      const list = res.data.data;
+      console.log(res);
+      dispatch(changeList(list));
+    });
+  };
+};

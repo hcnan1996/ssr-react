@@ -1,6 +1,8 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import { reducer as homeReducer } from "../containers/home/store";
+import clientAxios from '../client/request';
+import serverAxios from '../server/request';
 //合并项目组件中store的reducer
 const reducer = combineReducers({
   home: homeReducer,
@@ -11,7 +13,7 @@ const reducer = combineReducers({
 export const getStore = () => {
   return createStore(
     reducer,
-    applyMiddleware(thunk.withExtraArgument())
+    applyMiddleware(thunk.withExtraArgument(thunk.withExtraArgument(serverAxios)))
   );
 };
 export const getClientStore = () => {
@@ -19,6 +21,6 @@ export const getClientStore = () => {
   return createStore(
     reducer,
     defaultState,
-    applyMiddleware(thunk.withExtraArgument())
+    applyMiddleware(thunk.withExtraArgument(thunk.withExtraArgument(clientAxios)))
   );
 };

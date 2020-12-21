@@ -3,9 +3,17 @@ import routes from "../Routes";
 import { getStore } from "../store";
 import { matchRoutes } from "react-router-config";
 import { render } from "./utils";
+import proxy from 'express-http-proxy';
 
 const app = express();
 app.use(express.static("public"));
+
+app.use('/api', proxy('http://localhost:4000', {
+  proxyReqPathResolver: function(req) {
+    return '/api'+req.url
+  }
+}));
+
 //注意这里要换成*来匹配
 app.get("*", function (req, res) {
   const store = getStore();
