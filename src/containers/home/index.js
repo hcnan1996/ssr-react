@@ -2,7 +2,8 @@ import React from 'react';
 const Home = () => {
   return (
     <div>
-      <div onClick={ () => alert('6666') }>This is home</div>
+      <div>This is home</div>
+      <button onClick={ () => alert('6666') }>hecnan1996</button>
     </div>
   )
 }
