@@ -17,9 +17,10 @@ const serverConfig = {
           {
             loader: "css-loader",
             options: {
-              modules: true,
+              importLoaders: 1,
             },
           },
+          'postcss-loader'
         ],
       },
     ],

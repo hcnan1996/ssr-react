@@ -9,15 +9,16 @@ const clientConfig = {
   module: {
     rules: [
       {
-        test: /\.css?$/,
+        test: /\.css$/,
         use: [
-          "style-loader",
+          "isomorphic-style-loader",
           {
             loader: "css-loader",
             options: {
-              modules: true,
+              importLoaders: 1,
             },
           },
+          "postcss-loader",
         ],
       },
     ],
