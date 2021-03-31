@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { getHomeList } from "./store/actions";
 const Home = (props) => {
   const { list, name } = props;
+  const [num, setNum] = useState("");
+  const setnum = () => {
+    setNum("222");
+  };
   const getList = () => {
     console.log(list);
     return list.map((item) => <div key={item.id}>{item.title}</div>);
@@ -11,6 +15,7 @@ const Home = (props) => {
     <div>
       <div>This is home hcnan96</div>
       <h1>{name}</h1>
+      <button onClick={() => setnum()}>click11111{num}</button>
       <button
         onClick={() => {
           alert("666");
