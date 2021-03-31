@@ -7,9 +7,10 @@ import StyleContext from "isomorphic-style-loader/StyleContext";
 import { Helmet } from "react-helmet";
 
 export const render = (store, routes, req, ctx) => {
-  const css = new Set()
-  const insertCss = (...styles) => styles.forEach(style => css.add(style._getCss()))
-  const context = { insertCss }
+  const css = new Set();
+  const insertCss = (...styles) =>
+    styles.forEach((style) => css.add(style._getCss()));
+  const context = { insertCss };
   const content = renderToString(
     <StyleContext.Provider value={context}>
       <Provider store={store}>
@@ -20,11 +21,10 @@ export const render = (store, routes, req, ctx) => {
     </StyleContext.Provider>
   );
   const helmet = Helmet.renderStatic();
-  console.log(css)
+  console.log(css);
   return `
     <html>
       <head>
-      <style>${[...css].join("")}</style>
         ${helmet.title.toString()}
         ${helmet.meta.toString()}
       </head>
